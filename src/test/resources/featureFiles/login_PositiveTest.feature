@@ -7,7 +7,7 @@ Scenario: Verify Login Functionality_Positive Flow
 	Then User should see account overview page 
 	And User closes the browser 
 	
-Scenario: Verify when user enters invalid credentials 
+Scenario: Verify login functionality invalid credentials 
 	Given User Navigates to Modulr Payments 
 	When User enters username as dsfsdf and password as gfdgdfgdf 
 	And User click on sign In button 
