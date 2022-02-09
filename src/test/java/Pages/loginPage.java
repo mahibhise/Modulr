@@ -20,6 +20,10 @@ public class loginPage {
 	By credentialIncorrectMsg = By.xpath("//*[text() = ' The username or password is incorrect. ']");
 	By multipleInvaidLoginMsg = By.xpath("//*[@class='color-white text-body-medium top-margin-2 ng-star-inserted']");
 	By forgottenPasswordLnk = By.xpath("//*[@id='forgotPasswordHref']");
+	By resetPageHeading = By.xpath("//*[@id='signInHeading']");
+	By passwordResetUsernameBx = By.xpath("//*[@id='usernameInput']");
+	By requestResetBnt = By.xpath("//*[text()=' Request a reset ']");
+	By emailSentTxt = By.xpath("//*[text()='Email sent']");
 
 //Constructor to initialization of data members	
 	public loginPage(WebDriver driver)
@@ -56,17 +60,36 @@ public class loginPage {
 		{
 			String ForgotPasswordtext = driver.findElement(forgottenPasswordLnk).getText();
 			assertEquals("Forgotten password", ForgotPasswordtext);
-			
-			System.out.println("Test hello"+ ForgotPasswordtext);
-		
+	
 		}
 //Checking visibility of forgotten password button		
 		public void ForgoPwdClk()
 		{
 		driver.findElement(forgottenPasswordLnk).click();
 		}		
-		
-		
+//Reset Page Heading check
+		public void resetPageHeadingCheck()
+		{
+			String resetPageHeader = driver.findElement(resetPageHeading).getText();
+			assertEquals("Reset access", resetPageHeader);
+		}
+//to enter username to reset the password
+		public void enterUsernameToResetPassword(String ResetPwd)
+		{
+			driver.findElement(passwordResetUsernameBx).sendKeys(ResetPwd);
+		}
+//to click reset button
+		public void resetBtnClick()
+		{
+			driver.findElement(requestResetBnt).click();
+		}
+//to check email sent message
+		public void emailSentMsgCheck() throws InterruptedException
+		{
+			Thread.sleep(2000);
+			String resetPageHeader = driver.findElement(emailSentTxt).getText();
+			assertEquals("Email sent", resetPageHeader);
+		}
 		
 		
 		
