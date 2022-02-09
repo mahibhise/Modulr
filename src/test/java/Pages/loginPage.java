@@ -54,18 +54,9 @@ public class loginPage {
 //Checking visibility of forgotten password button		
 		public void forgottenPwdVisibility()
 		{
-			
-			try {
-				Thread.sleep(9000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-			
-			
 			String ForgotPasswordtext = driver.findElement(forgottenPasswordLnk).getText();
+			assertEquals("Forgotten password", ForgotPasswordtext);
+			
 			System.out.println("Test hello"+ ForgotPasswordtext);
 		
 		}

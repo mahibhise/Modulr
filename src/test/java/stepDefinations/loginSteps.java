@@ -74,7 +74,8 @@ public class loginSteps {
 
 		@Then("^Forgotten password is visible$")
 		public void forgotten_password_is_visible() {
-			loginObj.forgottenPwdVisibility();
+			 loginObj = new loginPage(driver);	
+			 loginObj.forgottenPwdVisibility();
 		}
 
 		@Then("^User click on forgotten password$")
